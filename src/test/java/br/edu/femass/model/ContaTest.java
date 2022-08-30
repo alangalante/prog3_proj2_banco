@@ -4,8 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
-
-import static org.junit.jupiter.api.Assertions.*;
+import java.util.List;
 
 class ContaTest {
 
@@ -44,17 +43,13 @@ class ContaTest {
         conta.creditar(300.0);
         conta.creditar(200.0);
 
-        Historico esperado = "";
+        List<Historico> esperado = new ArrayList<Historico>();
 
-        for (Historico historico: historicos) {
-            esperado+=historico.toString() + "\n";
+        for(int i=0; i<3; i++){
+            esperado = conta.getHistoricos();
         }
 
-        String esperado = "27/08/2022 21:26:41 - Valor: 100.0 - D�bito\n" +
-                "27/08/2022 21:26:41 - Valor: 300.0 - Cr�dito\n" +
-                "27/08/2022 21:26:41 - Valor: 200.0 - Cr�dito";
-
-        Assertions.assertEquals(esperado, conta.getHistorico());
+        Assertions.assertEquals(esperado, conta.getHistoricos());
     }
 
 }

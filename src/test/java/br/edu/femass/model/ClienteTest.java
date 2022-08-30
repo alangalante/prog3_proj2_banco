@@ -20,6 +20,15 @@ public class ClienteTest {
 
     @Test
     void criarContaGerandoNumero() {
+        Cliente cliente = new Cliente("Gabrielle", "32861458666");
+
+        cliente.criarConta(100.0);
+
+        Conta conta = cliente.getContas().get(0);
+
+        Long esperado = 1L;
+
+        Assertions.assertEquals(esperado, conta.getNumero());
 
     }
 
