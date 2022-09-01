@@ -1,9 +1,11 @@
 package br.edu.femass.model;
 
 import br.edu.femass.utils.Cpf;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class Cliente {
 
@@ -12,6 +14,9 @@ public class Cliente {
     private String endereco;
     private List<Conta> contas;
 
+    public Cliente() {
+
+    }
     public Cliente(String nome, String cpf) {
         this.nome = nome;
         if (Cpf.isCpf(cpf)==false) {

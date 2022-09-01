@@ -1,0 +1,33 @@
+[ {
+  "nome" : "João da Silva",
+  "cpf" : "50327237031",
+  "endereco" : null,
+  "contas" : [ ]
+}, {
+  "nome" : "Maria",
+  "cpf" : "25936400069",
+  "endereco" : "Rua A",
+  "contas" : [ {
+    "numero" : 1,
+    "saldo" : 9600.0,
+    "especial" : 0.0,
+    "historicos" : [ {
+      "data" : [ 2022, 8, 31, 21, 43, 23, 146388000 ],
+      "valor" : 10000.0,
+      "tipoLancamento" : "CREDITO"
+    }, {
+      "data" : [ 2022, 8, 31, 21, 43, 23, 146503000 ],
+      "valor" : 100.0,
+      "tipoLancamento" : "CREDITO"
+    }, {
+      "data" : [ 2022, 8, 31, 21, 43, 23, 146527000 ],
+      "valor" : 500.0,
+      "tipoLancamento" : "DEBITO"
+    } ]
+  }, {
+    "numero" : 2,
+    "saldo" : 0.0,
+    "especial" : 1000.0,
+    "historicos" : [ ]
+  } ]
+} ]
