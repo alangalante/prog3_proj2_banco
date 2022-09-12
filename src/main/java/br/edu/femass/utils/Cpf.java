@@ -4,7 +4,8 @@ import java.util.InputMismatchException;
 
 public class Cpf {
 
-    public static boolean isCpf(String cpf) {
+    public static boolean isCpf(String CPF) {
+        String cpf = CPF.replace(".","").replace("-", "");
         if (cpf.equals("00000000000") ||
                 cpf.equals("11111111111") ||
                 cpf.equals("22222222222") || cpf.equals("33333333333") ||

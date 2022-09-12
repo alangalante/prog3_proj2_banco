@@ -30,4 +30,9 @@
     "especial" : 1000.0,
     "historicos" : [ ]
   } ]
+}, {
+  "nome" : "Pedro",
+  "cpf" : "496.177.460-00",
+  "endereco" : "Rua P",
+  "contas" : [ ]
 } ]
