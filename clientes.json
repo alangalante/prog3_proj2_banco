@@ -35,4 +35,9 @@
   "cpf" : "496.177.460-00",
   "endereco" : "Rua P",
   "contas" : [ ]
+}, {
+  "nome" : "Lucas",
+  "cpf" : "309.557.050-37",
+  "endereco" : "Rua L",
+  "contas" : [ ]
 } ]
