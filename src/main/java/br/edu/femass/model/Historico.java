@@ -8,6 +8,10 @@ public class Historico {
     private Double valor;
     private TipoLancamento tipoLancamento;
 
+
+    public Historico() {
+
+    }
     public Historico(Double valor, TipoLancamento tipoLancamento) {
         this.data = LocalDateTime.now();
         this.valor = valor;
