@@ -1,27 +1,26 @@
 package br.edu.femass.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import java.util.ArrayList;
 import java.util.List;
 
-@JsonIgnoreProperties("historico")
 public class Conta {
     private Long numero;
     private Double saldo;
     private Double especial;
-    private List<Historico> historicos;
+
+    private Cliente cliente;
     private static Long proximoNumero = 1L;
 
     public Conta() {
 
     }
-    public Conta(Double especial) {
+
+    public Conta(Double especial, Cliente cliente) {
         this.numero = proximoNumero;
         proximoNumero++;
         this.saldo = 0D;
         this.especial = especial;
-        this.historicos = new ArrayList<Historico>();
+        this.cliente = cliente;
     }
 
     public Double getEspecial() {
@@ -32,9 +31,6 @@ public class Conta {
         return saldo;
     }
 
-    public List<Historico> getHistoricos() {
-        return historicos;
-    }
 
     public Long getNumero() {
         return numero;
@@ -44,9 +40,13 @@ public class Conta {
         this.especial = especial;
     }
 
+    public Cliente getCliente() {
+        return cliente;
+    }
+
     @Override
     public String toString() {
-        return this.numero.toString();
+        return "Número: " + this.numero.toString() + " - Cliente: " +  this.cliente.getNome();
     }
 
     @Override
@@ -55,28 +55,16 @@ public class Conta {
         return this.numero.equals(conta.getNumero());
     }
 
-    public void creditar(Double valor) {
-        this.saldo+=valor;
-        Historico historico = new Historico(valor, TipoLancamento.CREDITO);
-        this.historicos.add(historico);
-    }
 
-    public void debitar(Double valor) {
-        if (valor>this.saldo+ this.especial) {
-            throw new IllegalArgumentException("Saldo Insuficiente");
+    public static void atualizarProximoNumero(List<Conta> contas) {
+        for (Conta conta: contas) {
+            if (conta.getNumero()>proximoNumero) {
+                proximoNumero = conta.getNumero()+1;
+            }
         }
-        this.saldo-=valor;
-        Historico historico = new Historico(valor, TipoLancamento.DEBITO);
-        this.historicos.add(historico);
     }
 
-    public String getHistorico() {
-        String resp = "";
-        for (Historico historico: historicos) {
-            resp+=historico.toString() + "\n";
-        }
 
-        return resp;
-    }
+
 
 }

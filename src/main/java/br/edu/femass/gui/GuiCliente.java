@@ -6,90 +6,81 @@ import br.edu.femass.model.Cliente;
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
-import javax.swing.text.MaskFormatter;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
-import java.text.ParseException;
-import java.util.List;
 
 public class GuiCliente {
+    private JPanel jPanel;
+    private JList lstClientes;
     private JTextField txtNome;
+    private JTextField txtCpf;
     private JTextField txtEndereco;
     private JButton btnSalvar;
-    private JPanel jPanel;
-    private JFormattedTextField txtCpf;
-    private JList lstClientes;
-    private JComboBox cboClientes;
 
     public GuiCliente() {
-        try {
-            MaskFormatter mascara = new MaskFormatter("###.###.###-##");
-            mascara.install(txtCpf);
-        } catch (ParseException e) {
-            throw new RuntimeException(e);
-        }
-
-        updateList();
-        updateCombo();
-
         btnSalvar.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent actionEvent) {
+            public void actionPerformed(ActionEvent e) {
                 try {
-                    Cliente cliente = new Cliente(txtNome.getText(), txtCpf.getText(), txtEndereco.getText());
+                    Cliente cliente = new Cliente(
+                            txtNome.getText(),
+                            txtCpf.getText(),
+                            txtEndereco.getText()
+                    );
                     new DaoCliente().save(cliente);
-                    updateList();
-                    updateCombo();
+                    preencherLista();
                 } catch (Exception ex) {
                     JOptionPane.showMessageDialog(null, ex.getMessage());
                 }
+
             }
         });
         lstClientes.addListSelectionListener(new ListSelectionListener() {
             @Override
-            public void valueChanged(ListSelectionEvent listSelectionEvent) {
+            public void valueChanged(ListSelectionEvent e) {
+
                 Cliente cliente = (Cliente) lstClientes.getSelectedValue();
-                if (cliente==null) return;
-                txtCpf.setText(cliente.getCpf());
-                txtEndereco.setText(cliente.getEndereco());
-                txtNome.setText(cliente.getNome());
-            }
-        });
-        cboClientes.addItemListener(new ItemListener() {
-            @Override
-            public void itemStateChanged(ItemEvent itemEvent) {
-                Cliente cliente = (Cliente) cboClientes.getSelectedItem();
-                if (cliente==null) return;
-                txtCpf.setText(cliente.getCpf());
-                txtEndereco.setText(cliente.getEndereco());
-                txtNome.setText(cliente.getNome());
+
+                if (!(cliente==null)) {
+                    txtCpf.setText(cliente.getCpf());
+                    txtEndereco.setText(cliente.getEndereco());
+                    txtNome.setText(cliente.getNome());
+                }
             }
         });
     }
 
-    public JPanel getjPanel() {
-        return jPanel;
-    }
-
-    private void updateList() {
+    private void preencherLista() {
         try {
-            List<Cliente> clientes = new DaoCliente().getAll();
-            lstClientes.setListData(clientes.toArray());
+            lstClientes.setListData(
+                    new DaoCliente().getAll().toArray()
+            );
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            JOptionPane.showMessageDialog(null, e.getMessage());
         }
     }
 
-    private void updateCombo() {
-        try {
-            List<Cliente> clientes = new DaoCliente().getAll();
-            for (Cliente cliente: clientes) {
-                cboClientes.addItem(cliente);
-            }
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+    public void abrirTela() {
+        JFrame frame = new JFrame();
+        GuiCliente gui = new GuiCliente();
+        gui.preencherLista();
+        frame.setContentPane(gui.jPanel);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.setTitle("Cadastro de Clientes");
+        frame.pack();
+        frame.setVisible(true);
     }
+
+    public void abrirTelaModal() {
+        JDialog frame = new JDialog(new Frame(), true);
+        GuiCliente gui = new GuiCliente();
+        gui.preencherLista();
+        frame.setContentPane(gui.jPanel);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.setTitle("Cadastro de Clientes");
+        frame.pack();
+        frame.setVisible(true);
+    }
+
 }

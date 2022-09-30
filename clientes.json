@@ -1,43 +1,41 @@
 [ {
   "nome" : "João da Silva",
   "cpf" : "50327237031",
-  "endereco" : null,
-  "contas" : [ ]
+  "endereco" : null
 }, {
   "nome" : "Maria",
   "cpf" : "25936400069",
-  "endereco" : "Rua A",
-  "contas" : [ {
-    "numero" : 1,
-    "saldo" : 9600.0,
-    "especial" : 0.0,
-    "historicos" : [ {
-      "data" : [ 2022, 8, 31, 21, 43, 23, 146388000 ],
-      "valor" : 10000.0,
-      "tipoLancamento" : "CREDITO"
-    }, {
-      "data" : [ 2022, 8, 31, 21, 43, 23, 146503000 ],
-      "valor" : 100.0,
-      "tipoLancamento" : "CREDITO"
-    }, {
-      "data" : [ 2022, 8, 31, 21, 43, 23, 146527000 ],
-      "valor" : 500.0,
-      "tipoLancamento" : "DEBITO"
-    } ]
-  }, {
-    "numero" : 2,
-    "saldo" : 0.0,
-    "especial" : 1000.0,
-    "historicos" : [ ]
-  } ]
+  "endereco" : "Rua A"
 }, {
   "nome" : "Pedro",
   "cpf" : "496.177.460-00",
-  "endereco" : "Rua P",
-  "contas" : [ ]
+  "endereco" : "Rua P"
 }, {
   "nome" : "Lucas",
   "cpf" : "309.557.050-37",
-  "endereco" : "Rua L",
-  "contas" : [ ]
+  "endereco" : "Rua L"
+}, {
+  "nome" : "Luisa",
+  "cpf" : "577.522.130-39",
+  "endereco" : "Rua Luis"
+}, {
+  "nome" : "Tereza",
+  "cpf" : "238.487.560-48",
+  "endereco" : "Te"
+}, {
+  "nome" : "Jorge",
+  "cpf" : "553.443.830-45",
+  "endereco" : "Rua Jorge"
+}, {
+  "nome" : "Luana",
+  "cpf" : "378.791.120-06",
+  "endereco" : "Rua Luana"
+}, {
+  "nome" : "Roberto",
+  "cpf" : "050.134.700-30",
+  "endereco" : "Rua Roberto"
+}, {
+  "nome" : "Mariana",
+  "cpf" : "005.734.210-56",
+  "endereco" : "Rua Mariana"
 } ]

@@ -1,0 +1,46 @@
+[ {
+  "numero" : 1,
+  "saldo" : 0.0,
+  "especial" : 0.0,
+  "cliente" : {
+    "nome" : "Pedro",
+    "cpf" : "496.177.460-00",
+    "endereco" : "Rua P"
+  }
+}, {
+  "numero" : 2,
+  "saldo" : 0.0,
+  "especial" : 100.0,
+  "cliente" : {
+    "nome" : "Luisa",
+    "cpf" : "577.522.130-39",
+    "endereco" : "Rua Luis"
+  }
+}, {
+  "numero" : 3,
+  "saldo" : 0.0,
+  "especial" : 50.0,
+  "cliente" : {
+    "nome" : "João da Silva",
+    "cpf" : "50327237031",
+    "endereco" : null
+  }
+}, {
+  "numero" : 4,
+  "saldo" : 0.0,
+  "especial" : 200.0,
+  "cliente" : {
+    "nome" : "Lucas",
+    "cpf" : "309.557.050-37",
+    "endereco" : "Rua L"
+  }
+}, {
+  "numero" : 5,
+  "saldo" : 0.0,
+  "especial" : 90.0,
+  "cliente" : {
+    "nome" : "Maria",
+    "cpf" : "25936400069",
+    "endereco" : "Rua A"
+  }
+} ]
